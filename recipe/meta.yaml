@@ -14,7 +14,7 @@ build:
     - adl2pydm = adl2pydm.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -26,7 +26,6 @@ requirements:
 test:
   imports:
     - adl2pydm
-    - pyqtdesignerpath
   commands:
     - pip check
     - adl2pydm --help
