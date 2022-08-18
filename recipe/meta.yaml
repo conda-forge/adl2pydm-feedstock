@@ -1,5 +1,5 @@
 {% set name = "adl2pydm" %}
-{% set version = "0.0.3" %}
+{% set version = "0.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/adl2pydm-{{ version }}.tar.gz
-  sha256: 8d8a159e9a1a3952f5847c8514ac8d59d64b9e855f42d2a335dfd5086fc23239
+  sha256: 37d698b523d6f5b1fcef4a74081314950d69b3aaa83e3c6e682e6b6e6b5e89a9
 
 build:
   entry_points:
     - adl2pydm = adl2pydm.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
