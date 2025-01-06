@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/adl2pydm-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/adl2pydm-{{ version }}.tar.gz
   sha256: 37d698b523d6f5b1fcef4a74081314950d69b3aaa83e3c6e682e6b6e6b5e89a9
 
 build:
@@ -14,14 +14,14 @@ build:
     - adl2pydm = adl2pydm.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -31,6 +31,7 @@ test:
     - adl2pydm --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/BCDA-APS/adl2pydm
